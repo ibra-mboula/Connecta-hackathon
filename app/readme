@@ -1,0 +1,5 @@
+    // Database and collection setup
+    const database = client.db('hack_data');
+    const collection = database.collection('data');
+
+    https://cloud.mongodb.com/v2/65f5af84ab3eec0f34b8248d#/metrics/replicaSet/65f5b02c7fb30b2e4fd412db/explorer/hack_data/data/find
