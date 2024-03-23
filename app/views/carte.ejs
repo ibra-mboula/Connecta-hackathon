@@ -113,17 +113,17 @@
             fillOpacity: 0.5,
             radius: <%= 2000 %>
           });
-          // Ajoutez le texte au centre du cercle avec style
+          // Ajoute le texte au centre du cercle avec style
           var text<%= i %> = L.divIcon({
             className: 'text-label',
             html: '<span style="text-align:center; font-weight:bold;"><%= data[i].number %></span>',
             iconSize: [40, 20]
           });
-          // Ajoutez le cercle et le texte au layer des communes
+          // Ajoute le cercle et le texte au layer des communes
           communeLayer.addLayer(circle<%= i %>);
           L.marker([<%= data[i].coord.long %>, <%= data[i].coord.lat %>], { icon: text<%= i %> }).addTo(communeLayer);
         <% } %>
-        // Ajoutez le layer des communes à la couche "Commune"
+        // Ajoute le layer des communes à la couche "Commune"
         overlayLayers.Commune.addLayer(communeLayer);
     
 
@@ -135,7 +135,7 @@
       console.log('Arrondissement is ok');
 
 
-// Créez un objet pour stocker les communes pour chaque arrondissement
+// Crée un objet pour stocker les communes pour chaque arrondissement
 var arrondiss = {};
 
 <% for (let i = 0; i < data.length; i++) { %>
@@ -227,7 +227,7 @@ overlayLayers.Arrondissement.addLayer(arrondLayer);
 
 
 
-// Créez un objet pour stocker les communes pour chaque arrondissement
+// Crée un objet pour stocker les communes pour chaque arrondissement
 var prov = {};
 
 <% for (let i = 0; i < data.length; i++) { %>
@@ -236,7 +236,7 @@ var prov = {};
   if (prov[province]) {
     prov[province].push(communeName);
   } else {
-    // Sinon, créez une nouvelle entrée pour cet province
+    // Sinon, crée une nouvelle entrée pour cet province
     prov[province] = [communeName];
   }
 <% } %>
@@ -251,12 +251,12 @@ for (const provin in prov) {
   prov[provin].forEach(element => {
     <% for (let i = 0; i < data.length; i++) { %>
       if ('<%= data[i].province %>' === provin) { // Vérifier si l'province correspond
-        // Récupérer les coordonnées et le nombre de la commune
+        // Récupére les coordonnées et le nombre de la commune
         const coord = [<%= data[i].coord.long %>, <%= data[i].coord.lat %>];
         const number = <%= data[i].number %>;
-        // Ajouter les coordonnées à la liste
+        // Ajoute les coordonnées à la liste
         list_of_coord.push(coord);
-        // Ajouter le nombre à total_number
+        // Ajoute le nombre à total_number
         total_number += number;
       }
     <% } %>
@@ -279,7 +279,7 @@ for (let i = 0; i < list_long.length; i++) {
 long_moy = long_moy / list_long.length;
 lat_moy = lat_moy / list_lat.length;
 
-// Ajouter les données à data_to_show
+// Ajoute les données à data_to_show
 data_to_show.push({ arrondissement: prov, coordinates: { long: long_moy, lat: lat_moy }, totalNumber: total_number });
 }
 
@@ -296,7 +296,7 @@ for (let data of data_to_show) {
     radius: 8000 // Valeur fixe pour le rayon du cercle
   });
 
-  // Ajoutez le texte au centre du cercle avec style
+  // Ajoute le texte au centre du cercle avec style
   var text = L.divIcon({
     className: 'text-label',
     html: '<span style="text-align:center; font-weight:bold;">' + data.totalNumber + '</span>',
@@ -324,10 +324,10 @@ overlayLayers.Province.addLayer(provLayer);
       var activatedLayer = e.layer;
       for (var layerName in overlayLayers) {
         if (overlayLayers.hasOwnProperty(layerName) && overlayLayers[layerName] !== activatedLayer) {
-          if (controlLayers._layers[layerName]) { // Vérifier si la couche est définie dans le contrôle de couches
+          if (controlLayers._layers[layerName]) { // Vérifie si la couche est définie dans le contrôle de couches
             controlLayers._layers[layerName].layer.options.checked = false;
             layerStates[layerName] = false;
-            console.log(layerName + ' is unchecked lalal'); // Ajouter le console.log ici
+            console.log(layerName + ' is unchecked lalal'); // Ajoute le console.log ici
           }
         } else {
           layerStates[layerName] = true;
@@ -341,7 +341,7 @@ overlayLayers.Province.addLayer(provLayer);
       for (var layerName in overlayLayers) {
         if (overlayLayers.hasOwnProperty(layerName) && overlayLayers[layerName] === deactivatedLayer) {
           layerStates[layerName] = false;
-          console.log(layerName + ' is unchecked'); // Ajouter le console.log ici
+          console.log(layerName + ' is unchecked'); // Ajoute le console.log ici
         }
       }
     });

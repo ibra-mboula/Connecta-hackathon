@@ -97,7 +97,7 @@ if __name__ == "__main__":
     while True:
         random_value = random.randint(0,len(data_to_send)-1)
         random_profil = data_to_send[random_value]
-        #uri = "mongodb+srv://52676:yNHdKFyn3tPVtptZ@cluster0.kswno1o.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0&ssl=true&authSource=admin"
+        #uri = "mongodb+srv://526user76:PSW@cluster0.kswno1o.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0&ssl=true&authSource=admin"
         uri= "mongodb://127.0.0.1:27017"
         client = MongoClient(uri)        
         try:
@@ -106,7 +106,7 @@ if __name__ == "__main__":
             db = client.hack_data
             collection = db.data2
 
-            # Je définir l'arrondissement et la province
+            #  déf de l'arrondissement et la province
             commune_to_found = random_profil['commune']
             arrondissement = None
             Province = None

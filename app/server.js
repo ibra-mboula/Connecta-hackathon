@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 
 // Mise à jour de l'URI pour utiliser MongoDB Atlas
-//const uri = "mongodb+srv://52676:yNHdKFyn3tPVtptZ@cluster0.kswno1o.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0&ssl=true&authSource=admin";
+//const uri = "mongodb+srv://user:myPSW@cluster0.kswno1o.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0&ssl=true&authSource=admin";
 const uri = "mongodb://127.0.0.1:27017";
 const client = new MongoClient(uri);
 
@@ -51,7 +51,6 @@ app.get('/api/statistics', async (req, res) => {
     const database = client.db('hack_data');
     const collection = database.collection('data2');
     
-    // Remplacez ceci par la logique appropriée pour récupérer et formater les données de votre collection
     const statistics = await collection.aggregate([
       { $group: { _id: "$arrondissement", count: { $sum: 1 } } }
     ]).toArray();
@@ -93,7 +92,7 @@ app.get('/carte', async (req, res) => {
     }
   });
 
-  res.render('carte', { data: data }); // Rendre la page carte.ejs
+  res.render('carte', { data: data }); 
 });
 
 async function run() {
@@ -114,8 +113,6 @@ async function run() {
   } catch (e) {
     console.error(e);
   } finally {
-    // Uncomment the following line if you want to close the database connection after the server stops
-    // await client.close();
   }
 }
 

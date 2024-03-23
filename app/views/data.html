@@ -8,7 +8,7 @@
   <style>
     #myChart { height: 400px; }
     .chart-container {
-      margin-bottom: 100px; /* Ajout de marge en bas pour espacer les graphiques verticalement */
+      margin-bottom: 100px; 
     }
   </style>
 </head>
@@ -49,23 +49,23 @@
         <a href="/profil" class="btn btn-success">Intéressé ? Rejoignez-nous !</a>
     </div>
   <div class="row">
-    <div class="col-md-4 chart-container"> <!-- Ajout de la classe "chart-container" pour le premier graphique -->
+    <div class="col-md-4 chart-container">
       <h3>Graphique en Barres</h3>
       <canvas id="barChart" width="400" height="400"></canvas> 
     </div>
-    <div class="col-md-4 chart-container"> <!-- Ajout de la classe "chart-container" pour le deuxième graphique -->
+    <div class="col-md-4 chart-container"> 
       <h3>Graphique Circulaire</h3>
       <canvas id="pieChart" width="400" height="400"></canvas>
     </div>
-    <div class="col-md-4 chart-container"> <!-- Ajout de la classe "chart-container" pour le troisième graphique -->
+    <div class="col-md-4 chart-container"> 
       <h3>Graphique Radar</h3>
       <canvas id="radarChart" width="400" height="400"></canvas>
     </div>
-    <div class="col-md-4 chart-container"> <!-- Ajout de la classe "chart-container" pour le quatrième graphique -->
+    <div class="col-md-4 chart-container"> 
       <h3>Graphique en Donut</h3>
       <canvas id="donutChart" width="400" height="400"></canvas>
     </div>
-    <div class="col-md-4 chart-container"> <!-- Ajout de la classe "chart-container" pour le cinquième graphique -->
+    <div class="col-md-4 chart-container"> 
       <h3>Graphique Linéaire</h3>
       <canvas id="lineChart" width="400" height="400"></canvas>
     </div>
@@ -96,7 +96,7 @@
           borderWidth: 1
         }]
       },
-      plugins: [ChartDataLabels] // Make sure to include the plugin
+      plugins: [ChartDataLabels] 
     });
 
     // Graphique Circulaire
@@ -127,7 +127,7 @@
           borderWidth: 1
         }]
       },
-      plugins: [ChartDataLabels] // Make sure to include the plugin
+      plugins: [ChartDataLabels] 
     });
 
     // Graphique Radar
@@ -144,7 +144,7 @@
           borderWidth: 1
         }]
       },
-      plugins: [ChartDataLabels] // Make sure to include the plugin
+      plugins: [ChartDataLabels] 
     });
 
     // Graphique en Donut
@@ -193,7 +193,7 @@
           }
         }
       },
-      plugins: [ChartDataLabels] // Make sure to include the plugin
+      plugins: [ChartDataLabels] 
     });
 
     // Graphique Linéaire
@@ -210,7 +210,7 @@
           tension: 0.1
         }]
       },
-      plugins: [ChartDataLabels] // Make sure to include the plugin
+      plugins: [ChartDataLabels] 
     });
   })
   .catch(error => console.error('Erreur lors de la récupération des statistiques:', error));
